@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  SUNCastomVC.h
 //  PartyMaker
 //
 //  Created by 2 on 2/3/16.
@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface SUNCastomVC : UIViewController
 
-@property (strong, nonatomic) UIWindow *window;
-
+-(void)someAction;
 
 @end
-

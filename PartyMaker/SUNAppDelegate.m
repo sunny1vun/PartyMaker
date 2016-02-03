@@ -6,13 +6,13 @@
 //  Copyright © 2016 TonyStar. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "SUNAppDelegate.h"
 
-@interface AppDelegate ()
+@interface SUNAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation SUNAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
