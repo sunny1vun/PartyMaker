@@ -7,7 +7,7 @@
 //
 
 #import "SUNViewController.h"
-#import "SUNCastomVC.h"
+#import "SUNMakingPartyVC.h"
 
 @interface SUNViewController ()
 
@@ -27,12 +27,12 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     
-    SUNCastomVC *root =[SUNCastomVC new];
+    SUNMakingPartyVC *root =[SUNMakingPartyVC new];
     root.view = [[UIView alloc] initWithFrame:self.view.frame];
+
+    [root.view setBackgroundColor: [[UIColor alloc] initWithRed:46/255.f green:49/255.f blue:56/255.f alpha:1.f]];
     
-    [root.view setBackgroundColor: [UIColor blueColor]];
-    
-    UIBarButtonItem *rightRoot = [[UIBarButtonItem alloc] initWithTitle: @"+"                                                                  style:UIBarButtonItemStylePlain target:root action:@selector(someAction)];
+    UIBarButtonItem *rightRoot = [[UIBarButtonItem alloc] initWithTitle: @"+" style:UIBarButtonItemStylePlain target:root action:@selector(makeParty)];
     
     root.navigationItem.rightBarButtonItem = rightRoot;
     

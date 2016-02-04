@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SUNCastomVC : UIViewController
+@interface SUNMakingPartyVC : UIViewController
 
--(void)someAction;
+-(void)makeParty;
 
 @end

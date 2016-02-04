@@ -15,7 +15,7 @@
 		83EBB4151C6220ED007E3722 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83EBB4131C6220ED007E3722 /* LaunchScreen.storyboard */; };
 		83EBB4201C6220ED007E3722 /* PartyMakerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EBB41F1C6220ED007E3722 /* PartyMakerTests.m */; };
 		83EBB42B1C6220ED007E3722 /* PartyMakerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EBB42A1C6220ED007E3722 /* PartyMakerUITests.m */; };
-		83EBB43A1C622DA5007E3722 /* SUNCastomVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EBB4391C622DA5007E3722 /* SUNCastomVC.m */; };
+		83EBB43A1C622DA5007E3722 /* SUNMakingPartyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EBB4391C622DA5007E3722 /* SUNMakingPartyVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +52,8 @@
 		83EBB4261C6220ED007E3722 /* PartyMakerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PartyMakerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		83EBB42A1C6220ED007E3722 /* PartyMakerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PartyMakerUITests.m; sourceTree = "<group>"; };
 		83EBB42C1C6220ED007E3722 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		83EBB4381C622DA5007E3722 /* SUNCastomVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUNCastomVC.h; sourceTree = "<group>"; };
-		83EBB4391C622DA5007E3722 /* SUNCastomVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUNCastomVC.m; sourceTree = "<group>"; };
+		83EBB4381C622DA5007E3722 /* SUNMakingPartyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUNMakingPartyVC.h; sourceTree = "<group>"; };
+		83EBB4391C622DA5007E3722 /* SUNMakingPartyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUNMakingPartyVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,8 +108,8 @@
 				83EBB4091C6220ED007E3722 /* SUNAppDelegate.m */,
 				83EBB40B1C6220ED007E3722 /* SUNViewController.h */,
 				83EBB40C1C6220ED007E3722 /* SUNViewController.m */,
-				83EBB4381C622DA5007E3722 /* SUNCastomVC.h */,
-				83EBB4391C622DA5007E3722 /* SUNCastomVC.m */,
+				83EBB4381C622DA5007E3722 /* SUNMakingPartyVC.h */,
+				83EBB4391C622DA5007E3722 /* SUNMakingPartyVC.m */,
 				83EBB40E1C6220ED007E3722 /* Main.storyboard */,
 				83EBB4111C6220ED007E3722 /* Assets.xcassets */,
 				83EBB4131C6220ED007E3722 /* LaunchScreen.storyboard */,
@@ -277,7 +277,7 @@
 			files = (
 				83EBB40D1C6220ED007E3722 /* SUNViewController.m in Sources */,
 				83EBB40A1C6220ED007E3722 /* SUNAppDelegate.m in Sources */,
-				83EBB43A1C622DA5007E3722 /* SUNCastomVC.m in Sources */,
+				83EBB43A1C622DA5007E3722 /* SUNMakingPartyVC.m in Sources */,
 				83EBB4071C6220ED007E3722 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -504,6 +504,7 @@
 				83EBB4311C6220ED007E3722 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		83EBB4321C6220ED007E3722 /* Build configuration list for PBXNativeTarget "PartyMakerTests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +513,7 @@
 				83EBB4341C6220ED007E3722 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		83EBB4351C6220ED007E3722 /* Build configuration list for PBXNativeTarget "PartyMakerUITests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +522,7 @@
 				83EBB4371C6220ED007E3722 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
