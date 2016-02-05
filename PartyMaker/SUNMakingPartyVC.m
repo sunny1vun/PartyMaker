@@ -164,7 +164,7 @@
 //    chooseDate.titleLabel.font
     chooseDate.backgroundColor= [[UIColor alloc] initWithRed:239/255.f green:177/255.f blue:27/255.f alpha:1.f];
     [chooseDate setTitle:@"CHOOSE DATE"forState:UIControlStateNormal];
-    [chooseDate setTitle:@"Highlighted"forState:UIControlStateHighlighted];
+    [chooseDate setTitle:@"CHOOSE DATE"forState:UIControlStateHighlighted];
     [chooseDate setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [chooseDate setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     [chooseDate addTarget:self action:@selector(onDateClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -285,8 +285,17 @@
 
 -(void)onDateClicked:(id) date{
     UIToolbar *toolsForDatePicker= [[UIToolbar alloc] initWithFrame:(CGRect){0.f, self.view.frame.size.height, self.view.frame.size.width, 36}];
-    UIBarButtonItem *cancelButton= [[UIBarButtonItem alloc] initWithTitle: @"+" style:UIBarButtonItemStylePlain target:self action:@selector(onDateDone)];
-    UIBarButtonItem *doneButton= [[UIBarButtonItem alloc] initWithTitle: @"+" style:UIBarButtonItemStyleDone target:self action:@selector(onDateCanceled)];
+    
+    [toolsForDatePicker setBarTintColor:[[UIColor alloc] initWithRed:68/255.f green:73/255.f blue:83/255.f alpha:1.f]];
+    UIBarButtonItem *cancelButton= [[UIBarButtonItem alloc] initWithTitle: @"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(onDateDone)];
+    [cancelButton setTintColor:[UIColor whiteColor]];
+//    [cancelButton UIBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace];
+    UIBarButtonItem *doneButton= [[UIBarButtonItem alloc] initWithTitle: @"Done" style:UIBarButtonItemStyleDone target:self action:@selector(onDateCanceled)];
+    [doneButton setTintColor:[UIColor whiteColor]];
+    
+//    toolsForDatePicker set
+    [toolsForDatePicker setItems:@[cancelButton, doneButton]];
+    
     UIDatePicker *datePicker = [[UIDatePicker alloc] initWithFrame:(CGRect){0.f, self.view.frame.size.height+36, self.view.frame.size.width, self.view.frame.size.height- 366- 36}];
     datePicker.datePickerMode = UIDatePickerModeDateAndTime;
     datePicker.backgroundColor = [UIColor whiteColor];
@@ -305,6 +314,13 @@
     
     [self.view addSubview:toolsForDatePicker];
     [self.view addSubview:datePicker];
+    
+    for (UIView *viewButton in self.view.subviews) {
+        if([viewButton class]== [UIButton class]){
+            UIButton *button= (UIButton*)viewButton;
+            //тут нужно отключить кликабельность кнопки а потом просто включить по Done или Cancel
+        }
+    }
     
 }
 
@@ -388,6 +404,10 @@
     //        }
     //    }
     //
+}
+
+-(void)onTextFieldEditingEnded{
+    
 }
 
 #pragma mark- Working with PartyMakerView
