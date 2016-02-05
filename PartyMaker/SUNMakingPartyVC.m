@@ -20,7 +20,7 @@
     if (([self.navigationController.viewControllers count]> 1)== YES) {
         [self.view setBackgroundColor: [[UIColor alloc] initWithRed:46/255.f green:49/255.f blue:56/255.f alpha:1.f]];
         //        self.title= [NSString stringWithFormat:@"Some %i", (int)[self.navigationController.viewControllers count]];
-        self.title= @"Create Party";
+        self.title= @"CREATE PARTY";
     }
     
     
@@ -41,16 +41,118 @@
 
 -(void)addRound:(NSString*) forLabel{
     if ([forLabel isEqualToString:@"CHOOSE DAY"]) {
-        UIView *round= [[UIView alloc] initWithFrame:CGRectMake(10.f, 139.5f, 10.f, 10.f)];
-        //    UIView *dateView= [[UIView alloc] initWithFrame:CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)];
-//        UILabel *labelOfRound = [[UILabel alloc] initWithFrame:(CGRect){}];
-    }
-//    else if(){}
+        UIView *round= [[UIView alloc] initWithFrame:CGRectMake(10.f, 84.5f, 10.f, 10.f)];
+        round.backgroundColor = [[UIColor alloc] initWithRed:230/255.f green:224/255.f blue:213/255.f alpha:1.f];
+        round.layer.cornerRadius= 5.f;
+        
+        UILabel *labelOfRound= [[UILabel alloc] initWithFrame:CGRectMake(26.f, 84.f, 68.f, 11.f)];
+//        labelOfRound.backgroundColor = [[UIColor alloc] initWithRed:230/255.f green:224/255.f blue:213/255.f alpha:1.f];
+        [labelOfRound setText:forLabel];
+        [labelOfRound setTextColor:[[UIColor alloc] initWithRed:230/255.f green:224/255.f blue:213/255.f alpha:1.f]];
+        labelOfRound.font = [UIFont fontWithName:@"Helvetica" size:11];
+        labelOfRound.adjustsFontSizeToFitWidth= YES;
 
+        [self.view addSubview: round];
+        [self.view addSubview: labelOfRound];
+//        UILabel *labelOfRound = [[UILabel alloc] initWithFrame:(CGRect){}];
+    }else if ([forLabel isEqualToString:@"PARTY NAME"]) {
+        UIView *round= [[UIView alloc] initWithFrame:CGRectMake(10.f, 134.5f, 10.f, 10.f)];
+        round.backgroundColor = [[UIColor alloc] initWithRed:230/255.f green:224/255.f blue:213/255.f alpha:1.f];
+        round.layer.cornerRadius= 5.f;
+        
+        UILabel *labelOfRound= [[UILabel alloc] initWithFrame:CGRectMake(26.f, 134.f, 68.f, 11.f)];
+        //        labelOfRound.backgroundColor = [[UIColor alloc] initWithRed:230/255.f green:224/255.f blue:213/255.f alpha:1.f];
+        [labelOfRound setText:forLabel];
+        [labelOfRound setTextColor:[[UIColor alloc] initWithRed:230/255.f green:224/255.f blue:213/255.f alpha:1.f]];
+        labelOfRound.font = [UIFont fontWithName:@"Helvetica" size:11];
+        labelOfRound.adjustsFontSizeToFitWidth= YES;
+        
+        [self.view addSubview: round];
+        [self.view addSubview: labelOfRound];
+        //        UILabel *labelOfRound = [[UILabel alloc] initWithFrame:(CGRect){}];
+    }else if ([forLabel isEqualToString:@"START"]) {
+        UIView *round= [[UIView alloc] initWithFrame:CGRectMake(10.f, 180.5f, 10.f, 10.f)];
+        round.backgroundColor = [[UIColor alloc] initWithRed:230/255.f green:224/255.f blue:213/255.f alpha:1.f];
+        round.layer.cornerRadius= 5.f;
+        
+        UILabel *labelOfRound= [[UILabel alloc] initWithFrame:CGRectMake(26.f, 180.f, 68.f, 11.f)];
+        //        labelOfRound.backgroundColor = [[UIColor alloc] initWithRed:230/255.f green:224/255.f blue:213/255.f alpha:1.f];
+        [labelOfRound setText:forLabel];
+        [labelOfRound setTextColor:[[UIColor alloc] initWithRed:230/255.f green:224/255.f blue:213/255.f alpha:1.f]];
+        labelOfRound.font = [UIFont fontWithName:@"Helvetica" size:11];
+        labelOfRound.adjustsFontSizeToFitWidth= YES;
+        
+        [self.view addSubview: round];
+        [self.view addSubview: labelOfRound];
+        //        UILabel *labelOfRound = [[UILabel alloc] initWithFrame:(CGRect){}];
+    }else if ([forLabel isEqualToString:@"END"]) {
+        UIView *round= [[UIView alloc] initWithFrame:CGRectMake(10.f, 221.5f, 10.f, 10.f)];
+        round.backgroundColor = [[UIColor alloc] initWithRed:230/255.f green:224/255.f blue:213/255.f alpha:1.f];
+        round.layer.cornerRadius= 5.f;
+        
+        UILabel *labelOfRound= [[UILabel alloc] initWithFrame:CGRectMake(26.f, 221.f, 68.f, 11.f)];
+        //        labelOfRound.backgroundColor = [[UIColor alloc] initWithRed:230/255.f green:224/255.f blue:213/255.f alpha:1.f];
+        [labelOfRound setText:forLabel];
+        [labelOfRound setTextColor:[[UIColor alloc] initWithRed:230/255.f green:224/255.f blue:213/255.f alpha:1.f]];
+        labelOfRound.font = [UIFont fontWithName:@"Helvetica" size:11];
+        labelOfRound.adjustsFontSizeToFitWidth= YES;
+        
+        [self.view addSubview: round];
+        [self.view addSubview: labelOfRound];
+        //        UILabel *labelOfRound = [[UILabel alloc] initWithFrame:(CGRect){}];
+    }else if ([forLabel isEqualToString:@"LOGO"]) {
+        UIView *round= [[UIView alloc] initWithFrame:CGRectMake(10.f, 299.5f, 10.f, 10.f)];
+        round.backgroundColor = [[UIColor alloc] initWithRed:230/255.f green:224/255.f blue:213/255.f alpha:1.f];
+        round.layer.cornerRadius= 5.f;
+        
+        UILabel *labelOfRound= [[UILabel alloc] initWithFrame:CGRectMake(26.f, 299.f, 68.f, 11.f)];
+        //        labelOfRound.backgroundColor = [[UIColor alloc] initWithRed:230/255.f green:224/255.f blue:213/255.f alpha:1.f];
+        [labelOfRound setText:forLabel];
+        [labelOfRound setTextColor:[[UIColor alloc] initWithRed:230/255.f green:224/255.f blue:213/255.f alpha:1.f]];
+        labelOfRound.font = [UIFont fontWithName:@"Helvetica" size:11];
+        labelOfRound.adjustsFontSizeToFitWidth= YES;
+        
+        [self.view addSubview: round];
+        [self.view addSubview: labelOfRound];
+        //        UILabel *labelOfRound = [[UILabel alloc] initWithFrame:(CGRect){}];
+    }else if ([forLabel isEqualToString:@"DESCRIPTION"]) {
+        UIView *round= [[UIView alloc] initWithFrame:CGRectMake(10.f, 416.5f, 10.f, 10.f)];
+        round.backgroundColor = [[UIColor alloc] initWithRed:230/255.f green:224/255.f blue:213/255.f alpha:1.f];
+        round.layer.cornerRadius= 5.f;
+        
+        UILabel *labelOfRound= [[UILabel alloc] initWithFrame:CGRectMake(26.f, 416.f, 68.f, 11.f)];
+        //        labelOfRound.backgroundColor = [[UIColor alloc] initWithRed:230/255.f green:224/255.f blue:213/255.f alpha:1.f];
+        [labelOfRound setText:forLabel];
+        [labelOfRound setTextColor:[[UIColor alloc] initWithRed:230/255.f green:224/255.f blue:213/255.f alpha:1.f]];
+        labelOfRound.font = [UIFont fontWithName:@"Helvetica" size:11];
+        labelOfRound.adjustsFontSizeToFitWidth= YES;
+        
+        [self.view addSubview: round];
+        [self.view addSubview: labelOfRound];
+        //        UILabel *labelOfRound = [[UILabel alloc] initWithFrame:(CGRect){}];
+    }else if ([forLabel isEqualToString:@"FINAL"]) {
+        UIView *round= [[UIView alloc] initWithFrame:CGRectMake(10.f, 536.5f, 10.f, 10.f)];
+        round.backgroundColor = [[UIColor alloc] initWithRed:230/255.f green:224/255.f blue:213/255.f alpha:1.f];
+        round.layer.cornerRadius= 5.f;
+        
+        UILabel *labelOfRound= [[UILabel alloc] initWithFrame:CGRectMake(26.f, 536.f, 68.f, 11.f)];
+        //        labelOfRound.backgroundColor = [[UIColor alloc] initWithRed:230/255.f green:224/255.f blue:213/255.f alpha:1.f];
+        [labelOfRound setText:forLabel];
+        [labelOfRound setTextColor:[[UIColor alloc] initWithRed:230/255.f green:224/255.f blue:213/255.f alpha:1.f]];
+        labelOfRound.font = [UIFont fontWithName:@"Helvetica" size:11];
+        labelOfRound.adjustsFontSizeToFitWidth= YES;
+        
+        [self.view addSubview: round];
+        [self.view addSubview: labelOfRound];
+        //        UILabel *labelOfRound = [[UILabel alloc] initWithFrame:(CGRect){}];
+    }
 }
 
 -(void)addLine{
+    UIView *line= [[UIView alloc] initWithFrame:(CGRect){14.5f, 85.f, 1.f, 452.f}];
+    line.backgroundColor= [[UIColor alloc] initWithRed:230/255.f green:224/255.f blue:213/255.f alpha:1.f];
     
+    [self.view addSubview:line];
 }
 
 #pragma mark- Making ClickableFrontend
@@ -61,9 +163,10 @@
     chooseDate.layer.cornerRadius= 3.f;
 //    chooseDate.titleLabel.font
     chooseDate.backgroundColor= [[UIColor alloc] initWithRed:239/255.f green:177/255.f blue:27/255.f alpha:1.f];
-    [chooseDate setTitle:@"Normal"forState:UIControlStateNormal];
+    [chooseDate setTitle:@"CHOOSE DATE"forState:UIControlStateNormal];
     [chooseDate setTitle:@"Highlighted"forState:UIControlStateHighlighted];
     [chooseDate setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [chooseDate setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     [chooseDate addTarget:self action:@selector(onDateClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:chooseDate];
 }
@@ -75,7 +178,7 @@
     NSAttributedString *str = [[NSAttributedString alloc] initWithString:@"Some Text" attributes:@{ NSForegroundColorAttributeName : [[UIColor alloc] initWithRed:76/255.f green:82/255.f blue:92/255.f alpha:1.f] }];
     textField.attributedPlaceholder = str;
 
-    textField.textColor = [UIColor whiteColor];
+    textField.textColor = [UIColor lightGrayColor];
     textField.font = [UIFont fontWithName:@"Helvetica" size:14];
     textField.backgroundColor = [[UIColor alloc] initWithRed:35/255.f green:37/255.f blue:43/255.f alpha:1.f];
     textField.clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -120,7 +223,7 @@
     scrollView.pagingEnabled = YES;
     scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 55, 0);
     UIImageView *imageView = [[UIImageView alloc] init];
-    [scrollView.viewForFirstBaselineLayout setBackgroundColor:[UIColor grayColor]];
+    [scrollView.viewForFirstBaselineLayout setBackgroundColor:[[UIColor alloc] initWithRed:68/255.f green:73/255.f blue:83/255.f alpha:1.f]];
     [scrollView addSubview:imageView];
     scrollView.contentSize = imageView.frame.size;
     UIPageControl *pageControl = [[UIPageControl alloc] initWithFrame:(CGRect){0, 1284, 750, 50}];
@@ -143,11 +246,15 @@
 
 -(void)addTextView{
     UITextView *textView = [[UITextView alloc] initWithFrame:(CGRect){121, 366, 185, 100}];
-    textView.text = @"Some text";
-    textView.font = [UIFont fontWithName:@"Arial-Bold" size:18];
-    textView.backgroundColor = [UIColor yellowColor];
-    textView.textColor = [UIColor brownColor];
+//    textView.text = @"Some text";
+    textView.font = [UIFont fontWithName:@"Arial-Bold" size:11];
+    textView.backgroundColor = [[UIColor alloc] initWithRed:35/255.f green:37/255.f blue:43/255.f alpha:1.f];
+    textView.textColor = [UIColor lightGrayColor];
 //    textView.delegate = self;
+    UIView *line= [[UIView alloc] initWithFrame:(CGRect){0.f,0.f, 185.f, 6.f}];
+    line.backgroundColor= [[UIColor alloc] initWithRed:40/255.f green:132/255.f blue:175/255.f alpha:1.f];
+    
+    [textView addSubview:line];
     [self.view addSubview:textView];
 }
 
@@ -183,13 +290,27 @@
     partyMakerVC.view = [[UIView alloc] initWithFrame:self.view.frame];
 //    UIView *dateView= [[UIView alloc] initWithFrame:CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)];
     [partyMakerVC.navigationItem setHidesBackButton:YES];
+    
+    [partyMakerVC addLine];
     [partyMakerVC addRound:@"CHOOSE DAY"];
     [partyMakerVC addDateButton];
+    
+    [partyMakerVC addRound:@"PARTY NAME"];
     [partyMakerVC addTextField];
+    
+    [partyMakerVC addRound:@"START"];
     [partyMakerVC addTopSlider];
+    
+    [partyMakerVC addRound:@"END"];
     [partyMakerVC addBotSlider];
+    
+    [partyMakerVC addRound:@"LOGO"];
     [partyMakerVC addScrollViewWithPageControl];
+    
+    [partyMakerVC addRound:@"DESCRIPTION"];
     [partyMakerVC addTextView];
+    
+    [partyMakerVC addRound:@"FINAL"];
     [partyMakerVC addSaveButton];
     [partyMakerVC addCancelButton];
     

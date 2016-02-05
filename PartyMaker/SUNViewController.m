@@ -34,11 +34,22 @@
     
     UIBarButtonItem *rightRoot = [[UIBarButtonItem alloc] initWithTitle: @"+" style:UIBarButtonItemStylePlain target:root action:@selector(makeParty)];
     
+    [rightRoot setTintColor:[UIColor whiteColor]];
     root.navigationItem.rightBarButtonItem = rightRoot;
     
-    root.title= @"Party Maker";
+    root.title= @"PARTY MAKER";
     
-    UINavigationController *myNavigator= [[UINavigationController alloc] initWithRootViewController:root];
+//    UINavigationController *myNavigator= [[UINavigationController alloc] initWithRootViewController:root];
+    UINavigationController *myNavigator = [[UINavigationController alloc] initWithRootViewController:root];
+    [myNavigator.navigationBar setBarStyle:UIBarStyleBlack];
+    //Create present UINavigationController
+//    [self presentViewController:myNavigator animated:YES completion:nil];
+    //Create first push second controller
+    //[nav pushViewController:second animated:YES];
+    //Create log controllers array
+    NSLog(@"%@", myNavigator.viewControllers);
+    [myNavigator.navigationBar setBarTintColor:[UIColor colorWithRed:68/255.f green:73/255.f blue:83/255.f alpha:1]];
+    [myNavigator.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
     
     [self presentViewController:myNavigator animated:NO completion:nil];
     
