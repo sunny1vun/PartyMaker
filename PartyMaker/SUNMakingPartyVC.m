@@ -16,6 +16,16 @@
 
 @implementation SUNMakingPartyVC
 
+-(void)viewWillAppear:(BOOL)animated{
+    if (([self.navigationController.viewControllers count]> 1)== YES) {
+        [self.view setBackgroundColor: [[UIColor alloc] initWithRed:46/255.f green:49/255.f blue:56/255.f alpha:1.f]];
+        //        self.title= [NSString stringWithFormat:@"Some %i", (int)[self.navigationController.viewControllers count]];
+        self.title= @"Create Party";
+    }
+    
+    
+}
+
 -(void)changeColor{
     
 //    [self.view setBackgroundColor: [UIColor random]];
@@ -34,11 +44,12 @@
     UIButton *chooseDate= [UIButton buttonWithType:UIButtonTypeCustom];
     chooseDate.frame= (CGRect){121, 74, 190, 37};
     chooseDate.layer.cornerRadius= 3.f;
+//    chooseDate.titleLabel.font
     chooseDate.backgroundColor= [[UIColor alloc] initWithRed:239/255.f green:177/255.f blue:27/255.f alpha:1.f];
     [chooseDate setTitle:@"Normal"forState:UIControlStateNormal];
     [chooseDate setTitle:@"Highlighted"forState:UIControlStateHighlighted];
     [chooseDate setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [chooseDate addTarget:self action:@selector(onButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [chooseDate addTarget:self action:@selector(onDateClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:chooseDate];
 }
 
@@ -63,7 +74,7 @@
 }
 
 -(void)addTopSlider{
-    UISlider *slider = [[UISlider alloc] initWithFrame:(CGRect){174, 174, 137, 30}];
+    UISlider *slider = [[UISlider alloc] initWithFrame:(CGRect){174, 170, 137, 30}];
     slider.minimumValueImage = [UIImage imageNamed:@"Sun-32"];
     slider.maximumValueImage = [[UIImage imageNamed:@"Sun-64"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     slider.minimumTrackTintColor = [[UIColor alloc] initWithRed:240/255.f green:180/255.f blue:30/255.f alpha:1.f];
@@ -76,41 +87,75 @@
 }
 
 -(void)addBotSlider{
-//UISlider *sliderBot = [[UISlider alloc] initWithFrame:(CGRect){121, 229, 137, 30}];
-//sliderBot.minimumValueImage = [UIImage imageNamed:@"Sun-32"];
-//sliderBot.maximumValueImage = [[UIImage imageNamed:@"Sun-64"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-//sliderBot.minimumTrackTintColor = [[UIColor alloc] initWithRed:240/255.f green:180/255.f blue:30/255.f alpha:1.f];
-//sliderBot.maximumTrackTintColor = [[UIColor alloc] initWithRed:28/255.f green:30/255.f blue:35/255.f alpha:1.f];
-//sliderBot.thumbTintColor = [UIColor whiteColor];
-//sliderBot.tintColor = [UIColor blackColor];
-//sliderBot.value = 0.3;
-//[sliderBot addTarget:partyMakerVC action:@selector(onSlide:) forControlEvents:UIControlEventValueChanged];
-//[partyMakerVC.view addSubview:sliderBot];
+    UISlider *sliderBot = [[UISlider alloc] initWithFrame:(CGRect){121, 213, 137, 30}];
+    sliderBot.minimumValueImage = [UIImage imageNamed:@"Sun-32"];
+    sliderBot.maximumValueImage = [[UIImage imageNamed:@"Sun-64"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    sliderBot.minimumTrackTintColor = [[UIColor alloc] initWithRed:240/255.f green:180/255.f blue:30/255.f alpha:1.f];
+    sliderBot.maximumTrackTintColor = [[UIColor alloc] initWithRed:28/255.f green:30/255.f blue:35/255.f alpha:1.f];
+    sliderBot.thumbTintColor = [UIColor whiteColor];
+    sliderBot.tintColor = [UIColor blackColor];
+    sliderBot.value = 0.3;
+    [sliderBot addTarget:self action:@selector(onSlide:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:sliderBot];
 }
+
 -(void)addScrollViewWithPageControl{
-//UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:(CGRect){121, 289, 190, 101}];
-//scrollView.pagingEnabled = YES;
-//scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 55, 0);
-//UIImageView *imageView = [[UIImageView alloc] init];
-//[scrollView.viewForFirstBaselineLayout setBackgroundColor:[UIColor grayColor]];
-//[scrollView addSubview:imageView];
-//scrollView.contentSize = imageView.frame.size;
-//UIPageControl *pageControl = [[UIPageControl alloc] initWithFrame:(CGRect){0, 1284, 750, 50}];
-//pageControl.numberOfPages = 5;
-//pageControl.currentPage = 0;
-//pageControl.backgroundColor = [UIColor blackColor];
-//[pageControl addTarget:partyMakerVC action:@selector(onPageChanged:) forControlEvents:UIControlEventValueChanged];
-//
-////    pageControl.numberOfPages = scrollView.contentSize.width/[UIScreenmainScreen].bounds.size.width;[partyMakerVC.view addSubview:pageControl];
-////    partyMakerVC.pageControl = pageControl;
-////    UIView *viewForSliderImages= [[UIView alloc] initWithFrame:(CGRect){121, 229, 190, 101}];
-////    viewForSliderImages.scrollView = scrollView;
-////    [viewForSliderImages addSubview:pageControl];
-//[partyMakerVC.view addSubview:scrollView];
-//[partyMakerVC.view addSubview:pageControl];
-//
-//partyMakerVC.pageControl = pageControl;
-//partyMakerVC.scrollView = scrollView;
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:(CGRect){121, 254, 190, 101}];
+    scrollView.pagingEnabled = YES;
+    scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 55, 0);
+    UIImageView *imageView = [[UIImageView alloc] init];
+    [scrollView.viewForFirstBaselineLayout setBackgroundColor:[UIColor grayColor]];
+    [scrollView addSubview:imageView];
+    scrollView.contentSize = imageView.frame.size;
+    UIPageControl *pageControl = [[UIPageControl alloc] initWithFrame:(CGRect){0, 1284, 750, 50}];
+    pageControl.numberOfPages = 5;
+    pageControl.currentPage = 0;
+    pageControl.backgroundColor = [UIColor blackColor];
+    [pageControl addTarget:self action:@selector(onPageChanged:) forControlEvents:UIControlEventValueChanged];
+    
+    //    pageControl.numberOfPages = scrollView.contentSize.width/[UIScreenmainScreen].bounds.size.width;[partyMakerVC.view addSubview:pageControl];
+    //    partyMakerVC.pageControl = pageControl;
+    //    UIView *viewForSliderImages= [[UIView alloc] initWithFrame:(CGRect){121, 229, 190, 101}];
+    //    viewForSliderImages.scrollView = scrollView;
+    //    [viewForSliderImages addSubview:pageControl];
+    [self.view addSubview:scrollView];
+    [self.view addSubview:pageControl];
+    
+    self.pageControl = pageControl;
+    self.scrollView = scrollView;
+}
+
+-(void)addTextView{
+    UITextView *textView = [[UITextView alloc] initWithFrame:(CGRect){121, 366, 185, 100}];
+    textView.text = @"Some text";
+    textView.font = [UIFont fontWithName:@"Arial-Bold" size:18];
+    textView.backgroundColor = [UIColor yellowColor];
+    textView.textColor = [UIColor brownColor];
+//    textView.delegate = self;
+    [self.view addSubview:textView];
+}
+
+-(void)addSaveButton{
+    UIButton *chooseSave= [UIButton buttonWithType:UIButtonTypeCustom];
+    chooseSave.frame= (CGRect){121, 478, 190, 36};
+    chooseSave.layer.cornerRadius= 3.f;
+    chooseSave.backgroundColor= [[UIColor alloc] initWithRed:140/255.f green:186/255.f blue:29/255.f alpha:1.f];
+    [chooseSave setTitle:@"Save"forState:UIControlStateNormal];
+    [chooseSave setTitle:@"Highlighted"forState:UIControlStateHighlighted];
+    [chooseSave setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [chooseSave addTarget:self action:@selector(onSaveClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:chooseSave];
+}
+-(void)addCancelButton{
+    UIButton *chooseCancel= [UIButton buttonWithType:UIButtonTypeCustom];
+    chooseCancel.frame= (CGRect){121, 522, 190, 36};
+    chooseCancel.layer.cornerRadius= 3.f;
+    chooseCancel.backgroundColor= [[UIColor alloc] initWithRed:236/255.f green:71/255.f blue:19/255.f alpha:1.f];
+    [chooseCancel setTitle:@"Cancel"forState:UIControlStateNormal];
+    [chooseCancel setTitle:@"Highlighted"forState:UIControlStateHighlighted];
+    [chooseCancel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [chooseCancel addTarget:self action:@selector(onCancelClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:chooseCancel];
 }
 
 #pragma mark- Working with PartyMakerView
@@ -120,7 +165,17 @@
     partyMakerVC.view = [[UIView alloc] initWithFrame:self.view.frame];
 //    UIView *dateView= [[UIView alloc] initWithFrame:CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)];
     [partyMakerVC.navigationItem setHidesBackButton:YES];
+    [partyMakerVC addDateButton];
+    [partyMakerVC addTextField];
+    [partyMakerVC addTopSlider];
+    [partyMakerVC addBotSlider];
+    [partyMakerVC addScrollViewWithPageControl];
+    [partyMakerVC addTextView];
+    [partyMakerVC addSaveButton];
+    [partyMakerVC addCancelButton];
     
+    
+    /*
     //от сюда
     UIButton *chooseDate= [UIButton buttonWithType:UIButtonTypeCustom];
     chooseDate.frame= (CGRect){121, 74, 190, 37};
@@ -200,19 +255,9 @@
     partyMakerVC.pageControl = pageControl;
     partyMakerVC.scrollView = scrollView;
     
-    // до сюда
+    // до сюда*/
     
     [self.navigationController pushViewController:partyMakerVC animated:YES];
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    if (([self.navigationController.viewControllers count]> 1)== YES) {
-        [self.view setBackgroundColor: [[UIColor alloc] initWithRed:46/255.f green:49/255.f blue:56/255.f alpha:1.f]];
-//        self.title= [NSString stringWithFormat:@"Some %i", (int)[self.navigationController.viewControllers count]];
-        self.title= @"Create Party";
-    }
-    
-    
 }
 
 
