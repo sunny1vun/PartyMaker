@@ -283,6 +283,113 @@
 
 #pragma mark- Making Backend
 
+-(void)onDateClicked:(id) date{
+    UIToolbar *toolsForDatePicker= [[UIToolbar alloc] initWithFrame:(CGRect){0.f, self.view.frame.size.height, self.view.frame.size.width, 36}];
+    UIBarButtonItem *cancelButton= [[UIBarButtonItem alloc] initWithTitle: @"+" style:UIBarButtonItemStylePlain target:self action:@selector(onDateDone)];
+    UIBarButtonItem *doneButton= [[UIBarButtonItem alloc] initWithTitle: @"+" style:UIBarButtonItemStyleDone target:self action:@selector(onDateCanceled)];
+    UIDatePicker *datePicker = [[UIDatePicker alloc] initWithFrame:(CGRect){0.f, self.view.frame.size.height+36, self.view.frame.size.width, self.view.frame.size.height- 366- 36}];
+    datePicker.datePickerMode = UIDatePickerModeDateAndTime;
+    datePicker.backgroundColor = [UIColor whiteColor];
+    [datePicker addTarget:self action:@selector(onDateChanged:) forControlEvents:UIControlEventValueChanged];
+    
+    [UIView animateWithDuration:0.3f delay:0.05f options:UIViewAnimationOptionCurveLinear animations:^(void){
+        CGRect frameForDatePicker= toolsForDatePicker.viewForFirstBaselineLayout.frame;
+        frameForDatePicker.origin.y= 374;
+        toolsForDatePicker.frame= frameForDatePicker;
+        
+        frameForDatePicker= datePicker.viewForFirstBaselineLayout.frame;
+        frameForDatePicker.origin.y= 374+ 36;
+        datePicker.frame= frameForDatePicker;
+        
+    }   completion:nil];
+    
+    [self.view addSubview:toolsForDatePicker];
+    [self.view addSubview:datePicker];
+    
+}
+
+-(void)onDateChanged:(id) date{
+    
+    for(UIView *view in self.view.subviews){
+        if([view class]== [UIDatePicker class]){
+            NSDate *datePicker= ((UIDatePicker*)view).date;
+//            NSDate *myDate = datePicker.date;
+            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+            [dateFormat setDateFormat:@"dd.MM.yyyy"];
+            NSString *prettyDate = [dateFormat stringFromDate:datePicker];
+            
+            for (UIView *viewButton in self.view.subviews) {
+                if([viewButton class]== [UIButton class]){
+                    UIButton *button= (UIButton*)viewButton;
+                    [button setTitle:prettyDate forState:UIControlStateNormal];
+                }
+            }
+        }
+    }
+}
+
+-(void)onDateDone{//stores date to normalTitle of CHOOSE DATE button
+    
+//    [UIView animateWithDuration:0.3f delay:0.05f options:UIViewAnimationOptionCurveLinear animations:^(void){
+//        CGRect frameForDatePicker= toolsForDatePicker.viewForFirstBaselineLayout.frame;
+//        frameForDatePicker.origin.y= 374;
+//        toolsForDatePicker.frame= frameForDatePicker;
+//        
+//        frameForDatePicker= datePicker.viewForFirstBaselineLayout.frame;
+//        frameForDatePicker.origin.y= 374+ 36;
+//        datePicker.frame= frameForDatePicker;
+//        
+//    }   completion:nil];
+//    for(UIView *view in self.view.subviews){
+//        if([view class]== [UIDatePicker class]){
+//            NSDate *datePicker= ((UIDatePicker*)view).date;
+//            //            NSDate *myDate = datePicker.date;
+//            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+//            [dateFormat setDateFormat:@"dd.MM.yyyy"];
+//            NSString *prettyDate = [dateFormat stringFromDate:datePicker];
+//            
+//            for (UIView *viewButton in self.view.subviews) {
+//                if([viewButton class]== [UIButton class]){
+//                    UIButton *button= (UIButton*)viewButton;
+//                    [button setTitle:prettyDate forState:UIControlStateNormal];
+//                }
+//            }
+//        }
+//    }
+//
+}
+
+-(void)onDateCanceled{//canceling of choosing date
+    
+    //    [UIView animateWithDuration:0.3f delay:0.05f options:UIViewAnimationOptionCurveLinear animations:^(void){
+    //        CGRect frameForDatePicker= toolsForDatePicker.viewForFirstBaselineLayout.frame;
+    //        frameForDatePicker.origin.y= 374;
+    //        toolsForDatePicker.frame= frameForDatePicker;
+    //
+    //        frameForDatePicker= datePicker.viewForFirstBaselineLayout.frame;
+    //        frameForDatePicker.origin.y= 374+ 36;
+    //        datePicker.frame= frameForDatePicker;
+    //
+    //    }   completion:nil];
+    //    for(UIView *view in self.view.subviews){
+    //        if([view class]== [UIDatePicker class]){
+    //            NSDate *datePicker= ((UIDatePicker*)view).date;
+    //            //            NSDate *myDate = datePicker.date;
+    //            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    //            [dateFormat setDateFormat:@"dd.MM.yyyy"];
+    //            NSString *prettyDate = [dateFormat stringFromDate:datePicker];
+    //
+    //            for (UIView *viewButton in self.view.subviews) {
+    //                if([viewButton class]== [UIButton class]){
+    //                    UIButton *button= (UIButton*)viewButton;
+    //                    [button setTitle:prettyDate forState:UIControlStateNormal];
+    //                }
+    //            }
+    //        }
+    //    }
+    //
+}
+
 #pragma mark- Working with PartyMakerView
 -(void)makeParty{
     
